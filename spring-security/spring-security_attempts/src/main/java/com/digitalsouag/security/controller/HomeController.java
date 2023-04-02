@@ -23,18 +23,11 @@ public class HomeController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping({"/", ""})
+    @GetMapping(value = {"/", ""})
     public String index() {
         return "index";
     }
-    @GetMapping({"/login", "/connexion"})
-    public String login(HttpServletRequest request, HttpSession session) {
-        session.setAttribute(
-                "error", getErrorMessage(request, "SPRING_SECURITY_LAST_EXCEPTION")
-        );
-        return "login";
-    }
-    @GetMapping({"/register", "/inscription"})
+    @GetMapping(value= {"/register", "/inscription"})
     public String register() {
         return "register";
     }
@@ -43,6 +36,15 @@ public class HomeController {
             consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = {
             MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }
     )
+
+    @GetMapping(value = {"/login", "/connexion"})
+    public String login(HttpServletRequest request, HttpSession session) {
+        session.setAttribute(
+                "error", getErrorMessage(request, "SPRING_SECURITY_LAST_EXCEPTION")
+        );
+        return "login";
+    }
+
     public void addUser(@RequestParam Map<String, String> body) {
         User user = new User(); user.setUsername(body.get("username"));
         user.setPassword(passwordEncoder.encode(body.get("password")));
