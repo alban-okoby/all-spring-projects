@@ -1,4 +1,7 @@
 package com.digitalsouag.cashcard;
 
-public class CashCard {
-}
+/*
+public record CashCard(Long id, Double amount) {
+        }
+
+ */
