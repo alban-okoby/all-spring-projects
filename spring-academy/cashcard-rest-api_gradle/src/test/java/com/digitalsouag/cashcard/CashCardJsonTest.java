@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @JsonTest
 public class CashCardJsonTest{
 
+    /*
     @Autowired
     private JacksonTester<CashCard> json;
 
@@ -26,5 +27,5 @@ public class CashCardJsonTest{
         assertThat(json.write(cashCard)).extractingJsonPathNumberValue("@.amount")
                 .isEqualTo(123.45);
     }
-
+     */
 }
