@@ -6,6 +6,7 @@ import com.digitalsouag.redditapi.entity.VerificationToken;
 import com.digitalsouag.redditapi.repository.UserRepository;
 import com.digitalsouag.redditapi.repository.VerificationTokenRepository;
 import com.digitalsouag.redditapi.service.AuthService;
+import com.digitalsouag.redditapi.service.MailContentBuilder;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,15 +22,14 @@ import static java.time.Instant.now;
 @AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
-   private final UserRepository userRepository;
-   private final PasswordEncoder passwordEncoder;
-   private final VerificationTokenRepository verificationTokenRepository;
+   private UserRepository userRepository;
+   private PasswordEncoder passwordEncoder;
+   private VerificationTokenRepository verificationTokenRepository;
+   private MailContentBuilder mailContentBuilder;
 
-   public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, VerificationTokenRepository verificationTokenRepository) {
-       this.userRepository = userRepository;
-       this.passwordEncoder = passwordEncoder;
-       this.verificationTokenRepository = verificationTokenRepository;
-   }
+    public AuthServiceImpl() {
+    }
+
 
     @Override @Transactional
     public void signup(RegisterDto request) {
@@ -54,6 +54,7 @@ public class AuthServiceImpl implements AuthService {
             verificationTokenRepository.save(vt);
        return token;
     }
+
 
     @Override
     public String encodePassword(String password) {
