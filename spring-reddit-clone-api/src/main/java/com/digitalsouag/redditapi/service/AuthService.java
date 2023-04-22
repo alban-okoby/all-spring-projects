@@ -1,6 +1,7 @@
 package com.digitalsouag.redditapi.service;
 
 import com.digitalsouag.redditapi.dto.RegisterDto;
+import com.digitalsouag.redditapi.entity.NotificationEmail;
 import com.digitalsouag.redditapi.entity.User;
 import com.digitalsouag.redditapi.entity.VerificationToken;
 import com.digitalsouag.redditapi.exception.SpringRedditException;
@@ -44,8 +45,10 @@ public class AuthService {
         String msg = mailContentBuilder.build("You are welcome to RedditCloneApp: For login," +
                 "please click on the below url to active your account " +  ACTIVATION_EMAIL + "/" + token);
 
-    }
+        // Send mail to user
+        mailService.sendMail(new NotificationEmail("Please activate your account", u.getEmail(), msg));
 
+    }
 
     public String generateVerificationToken(User user) {
         String token = UUID.randomUUID().toString();
