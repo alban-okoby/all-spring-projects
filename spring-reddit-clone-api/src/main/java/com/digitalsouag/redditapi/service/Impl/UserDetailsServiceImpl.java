@@ -3,6 +3,7 @@ package com.digitalsouag.redditapi.service.Impl;
 import com.digitalsouag.redditapi.entity.User;
 import com.digitalsouag.redditapi.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +20,7 @@ import static java.util.Collections.singletonList;
 @Service
 @AllArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
+    @Autowired
     private final UserRepository userRepository;
 
     @Override @Transactional
