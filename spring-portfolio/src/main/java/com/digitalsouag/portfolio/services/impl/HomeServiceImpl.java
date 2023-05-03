@@ -34,14 +34,15 @@ public class HomeServiceImpl implements HomeService {
         if (!homeRepository.existsById(home.getId())) {
             throw new Exception("Not found");
         }
-        Home newHome = this.homeRepository.findByIdHome(id);
-        newHome.setDescription(home.getDescription());
-        newHome.setSalutation(home.getSalutation());
+        Home updateHome = this.homeRepository.findByIdHome(id);
+        updateHome.setDescription(home.getDescription());
+        updateHome.setSalutation(home.getSalutation());
+        updateHome.setQuote(home.getQuote());
         return homeRepository.saveAndFlush(home);
     }
 
     @Override
     public List<Home> getHome() {
-        return homeRepository.findAll();
+        return homeRepository.findFirstById();
     }
 }

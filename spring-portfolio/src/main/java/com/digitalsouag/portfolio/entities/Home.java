@@ -23,4 +23,6 @@ public class Home implements Serializable {
     @NotBlank @Column(nullable = false)
     @Size(min = 25, message = "Description minimum length is 25")
     private String description;
+    @Column
+    private String quote;
 }
