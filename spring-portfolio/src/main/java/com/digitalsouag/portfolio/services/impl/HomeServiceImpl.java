@@ -6,6 +6,9 @@ import com.digitalsouag.portfolio.services.HomeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Set;
+
 @Service
 @AllArgsConstructor
 public class HomeServiceImpl implements HomeService {
@@ -24,13 +27,21 @@ public class HomeServiceImpl implements HomeService {
     }
 
     @Override
-    public Home update(Home home) throws Exception {
+    public Home update(Home home, Long id) throws Exception {
         if (homeRepository == null) {
             throw new Exception("Home must not be null");
         }
-        Home newHome = new Home();
-            newHome.setDescription(home.getDescription());
-            newHome.setSalutation(home.getSalutation());
+        if (!homeRepository.existsById(home.getId())) {
+            throw new Exception("Not found");
+        }
+        Home newHome = this.homeRepository.findByIdHome(id);
+        newHome.setDescription(home.getDescription());
+        newHome.setSalutation(home.getSalutation());
         return homeRepository.saveAndFlush(home);
+    }
+
+    @Override
+    public List<Home> getHome() {
+        return homeRepository.findAll();
     }
 }
