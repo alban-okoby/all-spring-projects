@@ -20,6 +20,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class User implements UserDetails {
 
 	@Id
@@ -52,6 +53,13 @@ public class User implements UserDetails {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role", referencedColumnName = "id"))
 	private Set<Role> roles = new HashSet<>();
+
+	public User(String name, String email, String password, String about) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.about = about;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

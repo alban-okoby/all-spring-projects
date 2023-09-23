@@ -86,7 +86,7 @@ public class AuthController {
 	@Autowired
 	private ModelMapper mapper;
 
-	@GetMapping("/current-user/")
+	@GetMapping("/current-user")
 	public ResponseEntity<UserDto> getUser(Principal principal) {
 		User user = this.userRepo.findByEmail(principal.getName()).get();
 		return new ResponseEntity<UserDto>(this.mapper.map(user, UserDto.class), HttpStatus.OK);
