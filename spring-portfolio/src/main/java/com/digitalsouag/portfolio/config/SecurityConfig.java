@@ -18,6 +18,7 @@ import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,13 +27,16 @@ import com.digitalsouag.portfolio.security.CustomUserDetailService;
 import com.digitalsouag.portfolio.security.JwtAuthenticationEntryPoint;
 import com.digitalsouag.portfolio.security.JwtAuthenticationFilter;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
 @EnableWebMvc
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    public static final String[] PUBLIC_URLS = {"/api/v1/auth/login", "/api/v1/auth/register", "/v3/api-docs", "/v2/api-docs",
+    public static final String[] PUBLIC_URLS = {
+            "/api/v1/auth/login", "/api/v1/auth/register", "/api/v1/posts", "/api/v1/posts/**", "/v3/api-docs", "/v2/api-docs",
             "/swagger-resources/**", "/swagger-ui/**", "/webjars/**"
 
     };
@@ -50,9 +54,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http.
-                csrf()
+        http
+                .csrf()
                 .disable()
+                .cors().and()
                 .authorizeHttpRequests()
                 .antMatchers(PUBLIC_URLS)
                 .permitAll()
@@ -70,7 +75,6 @@ public class SecurityConfig {
         DefaultSecurityFilterChain defaultSecurityFilterChain = http.build();
 
         return defaultSecurityFilterChain;
-
 
     }
 
@@ -141,31 +145,44 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
-
     @Bean
-    public FilterRegistrationBean coresFilter() {
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"));
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Requestor-Type"));
+        configuration.setExposedHeaders(Arrays.asList("X-Get-Header"));
+        configuration.setMaxAge(3600L);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedOriginPattern("*");
-        corsConfiguration.addAllowedHeader("Authorization");
-        corsConfiguration.addAllowedHeader("Content-Type");
-        corsConfiguration.addAllowedHeader("Accept");
-        corsConfiguration.addAllowedMethod("POST");
-        corsConfiguration.addAllowedMethod("GET");
-        corsConfiguration.addAllowedMethod("DELETE");
-        corsConfiguration.addAllowedMethod("PUT");
-        corsConfiguration.addAllowedMethod("OPTIONS");
-        corsConfiguration.setMaxAge(3600L);
-
-        source.registerCorsConfiguration("/**", corsConfiguration);
-
-        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-
-        bean.setOrder(-110);
-
-        return bean;
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
+
+//    @Bean
+//    public FilterRegistrationBean coresFilter() {
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//
+//        CorsConfiguration corsConfiguration = new CorsConfiguration();
+//        corsConfiguration.setAllowCredentials(true);
+//        corsConfiguration.addAllowedOriginPattern("*");
+//        corsConfiguration.addAllowedHeader("Authorization");
+//        corsConfiguration.addAllowedHeader("Content-Type");
+//        corsConfiguration.addAllowedHeader("Accept");
+//        corsConfiguration.addAllowedMethod("POST");
+//        corsConfiguration.addAllowedMethod("GET");
+//        corsConfiguration.addAllowedMethod("DELETE");
+//        corsConfiguration.addAllowedMethod("PUT");
+//        corsConfiguration.addAllowedMethod("OPTIONS");
+//        corsConfiguration.setMaxAge(3600L);
+//
+//        source.registerCorsConfiguration("/**", corsConfiguration);
+//
+//        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+//
+//        bean.setOrder(-110);
+//
+//        return bean;
+//    }
 
 }

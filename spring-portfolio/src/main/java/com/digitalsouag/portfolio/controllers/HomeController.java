@@ -3,6 +3,7 @@ package com.digitalsouag.portfolio.controllers;
 import com.digitalsouag.portfolio.entities.Home;
 import com.digitalsouag.portfolio.services.HomeService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@CrossOrigin("*")
+
 @RequestMapping("/api/v1/home")
 public class HomeController {
 
     private final HomeService homeService;
+    public HomeController(HomeService homeService) {
+        this.homeService = homeService;
+    }
 
     @PostMapping("")
     public ResponseEntity<Home> addHome(@RequestBody Home home) throws Exception {

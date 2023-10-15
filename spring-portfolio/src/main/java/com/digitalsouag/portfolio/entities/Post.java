@@ -1,5 +1,6 @@
 package com.digitalsouag.portfolio.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Post {
+public class Post implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,10 +44,12 @@ public class Post {
 	private Date addedDate;
 
 	@ManyToOne
+	@JsonIgnoreProperties(ignoreUnknown=true)
 	@JoinColumn(name = "category_id")
 	private Category category;
 
 	@ManyToOne
+	@JsonIgnoreProperties(ignoreUnknown=true)
 	private User user;
 
 	@OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
