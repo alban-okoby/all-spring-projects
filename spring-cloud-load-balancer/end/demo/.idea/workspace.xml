@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf1d9750-767f-4015-b7be-cd7b1df4e28b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/BatchConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/BatchConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/JobCompletionNotificationListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/JobCompletionNotificationListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/UserItemProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/java/com/example/batch/UserItemProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/resources/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/resources/data/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-batch/end/src/main/resources/sql/schema-all.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-batch/end/src/main/resources/sql/schema-all.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hello/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hello/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hello/src/main/java/com/digitalsouag/hello/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hello/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/digitalsouag/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/digitalsouag/user/UserApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/test/java/com/digitalsouag/user/UserApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-microservices/service-registry-and-discovery/eureka-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-microservices/service-registry-and-discovery/eureka-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-notifications/src/main/java/com/digitalsouag/notification/api/MessageController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-notifications/src/main/java/com/digitalsouag/notification/api/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-notifications/src/main/java/com/digitalsouag/notification/entities/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-notifications/src/main/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-portfolio/src/main/java/com/digitalsouag/portfolio/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-portfolio/src/main/java/com/digitalsouag/portfolio/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring-portfolio/src/main/java/com/digitalsouag/portfolio/controllers/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring-portfolio/src/main/java/com/digitalsouag/portfolio/controllers/PostController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2iG4FOZDkB5HuXZWw1cqDOgTfT5" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf1d9750-767f-4015-b7be-cd7b1df4e28b" name="Changes" comment="" />
+      <created>1719103480470</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719103480470</updated>
+      <workItem from="1719103481457" duration="646000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
